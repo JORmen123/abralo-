@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¿Me perdonas?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 350px;
+      width: 90%;
+      position: relative;
+    }
+
+    h1 {
+      color: #e75480;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin: 10px;
+      transition: transform 0.2s;
+    }
+
+    .si {
+      background-color: #e75480;
+      color: white;
+    }
+
+    .no {
+      background-color: #ec3160;
+      color: #000000;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #respuesta {
+      margin-top: 25px;
+      font-size: 18px;
+      color: #e75480;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>¿Me perdona por no hablarle? 💗</h1>
+
+    <button class="si" onclick="perdonar()">Sí</button>
+    <button class="no" id="btnNo">No</button>
+
+    <div id="respuesta">Gracias 💕 la proxima si le hablare 😊</div>
+  </div>
+
+  <script>
+    const btnNo = document.getElementById("btnNo");
+
+    btnNo.addEventListener("click", () => {
+      const card = document.querySelector(".card");
+      const maxX = card.offsetWidth - btnNo.offsetWidth - 20;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * 150) + 60;
+
+      btnNo.style.left = randomX + "px";
+      btnNo.style.top = randomY + "px";
+    });
+
+    function perdonar() {
+      document.getElementById("respuesta").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
